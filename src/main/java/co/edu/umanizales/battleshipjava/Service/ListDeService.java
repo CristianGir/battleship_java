@@ -13,7 +13,7 @@ public class ListDeService {
     private ListDE list = new ListDE();
 
     public List<ShipDistribution> getAllLinked() {
-        return this.list.enlist();
+            return this.list.enlist();
     }
 
     public String add(ShipDistribution shipDistribution) {

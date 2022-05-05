@@ -12,7 +12,7 @@ public class ListDE {
     private NodeDE head;
     private int count;
 
-    public List<ShipDistribution> enlist(){
+    public List<ShipDistribution> enlist() {
         List<ShipDistribution> list = new ArrayList<>();
         if (this.head != null) {
             NodeDE temp = this.head;
@@ -63,11 +63,10 @@ public class ListDE {
                 newList.add(temp.getData());
                 temp = temp.getNext();
             }
-            this.head = newList.head;
             return newList;
         }
         else {
-            throw new Exception("La lista no tiene elementos suficientes para invertir.");
+            throw new Exception("La lista está vacía.");
         }
     }
 }
