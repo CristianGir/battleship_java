@@ -10,7 +10,6 @@ import java.util.List;
 @NoArgsConstructor
 public class ListDE {
     private NodeDE head;
-    private int size;
     private int count;
 
     public List<ShipDistribution> enlist(){
