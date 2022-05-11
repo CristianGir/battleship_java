@@ -4,7 +4,6 @@ import co.edu.umanizales.battleshipjava.model.*;
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service

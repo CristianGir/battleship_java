@@ -14,20 +14,18 @@ public class ListDE {
 
     public List<ShipDistribution> enlist() {
         List<ShipDistribution> list = new ArrayList<>();
-        if (this.head != null) {
-            NodeDE temp = this.head;
-            while (temp != null) {
-                list.add(temp.getData());
-                temp = temp.getNext();
+        NodeDE temp = this.head;
+        while (temp != null) {
+            list.add(temp.getData());
+            temp = temp.getNext();
             }
-        }
         return list;
     }
 
     public void add(ShipDistribution shipDistribution) {
+        shipDistribution.getShip().setId(this.count + 1);
         if (this.head == null) {
-            NodeDE newNode = new NodeDE(shipDistribution);
-            this.head = newNode;
+            this.head = new NodeDE(shipDistribution);
         }
         else {
             NodeDE temp = this.head;
@@ -42,9 +40,9 @@ public class ListDE {
     }
 
     public void addFirst(ShipDistribution shipDistribution) {
+        shipDistribution.getShip().setId(this.count + 1);
         if (this.head == null) {
-            NodeDE newNode = new NodeDE(shipDistribution);
-            this.head = newNode;
+            this.head = new NodeDE(shipDistribution);
         }
         else {
             NodeDE newNode = new NodeDE(shipDistribution);
