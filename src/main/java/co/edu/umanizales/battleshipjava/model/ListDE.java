@@ -53,19 +53,14 @@ public class ListDE {
         this.count++;
     }
 
-    public ListDE cloneList() throws Exception {
-        if (this.head != null) {
-            ListDE newList = new ListDE();
-            NodeDE temp = this.head;
-            while (temp != null) {
-                newList.add(temp.getData());
-                temp = temp.getNext();
-            }
-            return newList;
+    public ListDE cloneList() {
+        ListDE newList = new ListDE();
+        NodeDE temp = this.head;
+        while (temp != null) {
+            newList.add(temp.getData());
+            temp = temp.getNext();
         }
-        else {
-            throw new Exception("La lista está vacía.");
-        }
+        return newList;
     }
 
     public boolean verifyExistingCoordinates(Coordinate[] coordinates) {
