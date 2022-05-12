@@ -28,6 +28,7 @@ public class UserService {
         if(player2 != null) {
             list.add(player2.userToDTO());
         }
+        return list;
     }
 
     public String createPlayer(User player, byte numPlayer) {
