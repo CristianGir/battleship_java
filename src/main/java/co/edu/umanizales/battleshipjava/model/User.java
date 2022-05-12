@@ -14,4 +14,9 @@ public class User {
         this.password = password;
         this.typeUser = typeUser;
     }
+
+    public UserDTO userToDTO() {
+        UserDTO userDTO = new UserDTO(this.email, this.getTypeUser().getDescription());
+        return userDTO;
+    }
 }
