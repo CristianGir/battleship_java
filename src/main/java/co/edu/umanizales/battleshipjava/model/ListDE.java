@@ -64,15 +64,13 @@ public class ListDE {
     }
 
     public boolean verifyExistingCoordinates(Coordinate[] coordinates) {
-        if(this.head != null){
+        if (this.head != null) {
             NodeDE temp = this.head;
-            while(temp.getNext() != null) {
-                if(temp.getData().getOrientation() != 0) {
-                    for(Coordinate coord: coordinates) {
-                        for(Coordinate shipCoord: temp.getData().getCoordinates()) {
-                            if (coord.equals(shipCoord)) {
-                                return true;
-                            }
+            while (temp != null) {
+                if (temp.getData().getOrientation() != 0) {
+                    for (Coordinate coord : coordinates) {
+                        if (temp.getData().validateExistingCoordinate(coord)) {
+                            return true;
                         }
                     }
                 }
