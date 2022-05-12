@@ -24,4 +24,8 @@ public class ListDeService {
         this.list.addFirst(shipDistribution);
         return "Adicionado con éxito";
     }
+
+    public ListDE cloneList() {
+        return this.list.cloneList();
+    }
 }
