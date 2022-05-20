@@ -5,6 +5,7 @@ import co.edu.umanizales.battleshipjava.model.User;
 import co.edu.umanizales.battleshipjava.model.UserDTO;
 import org.springframework.stereotype.Service;
 
+import javax.ws.rs.core.Response;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,7 +36,7 @@ public class UserService {
         if(numPlayer == 1 && player1 != null) {
             return "El jugador 1 ya se encuentra creado.";
         }
-        if(numPlayer == 2 && player1 != null) {
+        if(numPlayer == 2 && player2 != null) {
             return "El jugador 2 ya se encuentra creado.";
         }
         if(numPlayer == 1) {

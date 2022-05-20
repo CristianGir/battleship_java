@@ -32,14 +32,4 @@ public class ListDeController {
         ShipDistribution shipDistribution = new ShipDistribution(ship);
         return listDeService.addFirst(shipDistribution);
     }
-
-    @PostMapping(path = "/load")
-    public String loadPets(@RequestBody List<Ship> ships)
-    {
-        for (Ship ship : ships)
-        {
-            listDeService.add(new ShipDistribution(ship));
-        }
-        return "Mascotas cargadas exitosamente.";
-    }
 }

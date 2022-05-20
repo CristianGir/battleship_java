@@ -16,7 +16,7 @@ public class Game {
         createBoards(player1, player2, shipsList);
         this.shipsNumber = (byte)shipsList.getCount();
     }
-    public String validateShoot(int x, int y, User player) {
+    public String createBoards(int x, int y, User player) {
         return null;
     }
     private void createBoards(User player1, User player2, ListDE shipsList) {
@@ -34,6 +34,9 @@ public class Game {
         }
     }
     public User validateWinner() {
+        return null;
+    }
+    public String validateShoot(int x, int y, User player) {
         return null;
     }
 }

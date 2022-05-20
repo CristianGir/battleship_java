@@ -18,7 +18,6 @@ public class ShipDistribution {
     public boolean validateExistingCoordinate(Coordinate coordinate) {
         if (this.orientation == 0)
             return false;
-
         for (Coordinate coord : this.coordinates) {
             if (coord.equals(coordinate)) {
                 return true;
