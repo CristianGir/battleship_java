@@ -16,7 +16,7 @@ public class UserService {
 
     public UserService() {
         administrator = new User("cgiraldo93759@umanizales.edu.co", "123456",
-                new TypeUser(1, "Administrador"));
+                new TypeUser(1, "Administrador"), null);
     }
 
     public List<UserDTO> listUsers() {

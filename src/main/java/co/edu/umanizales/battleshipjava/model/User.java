@@ -7,7 +7,6 @@ import javax.validation.constraints.NotNull;
 
 @Data
 public class User {
-    private int id;
     @NotNull
     @NotBlank
     private String email;
@@ -16,15 +15,17 @@ public class User {
     private String password;
     @NotNull
     private TypeUser typeUser;
+    private String token;
 
-    public User (String email, String password, TypeUser typeUser) {
+    public User (String email, String password, TypeUser typeUser, String token) {
         this.email = email;
         this.password = password;
         this.typeUser = typeUser;
+        this.token = token;
     }
 
     public UserDTO userToDTO() {
-        UserDTO userDTO = new UserDTO(this.email, this.getTypeUser().getDescription());
+        UserDTO userDTO = new UserDTO(this.email, this.getTypeUser().getDescription(), this.token);
         return userDTO;
     }
 }
