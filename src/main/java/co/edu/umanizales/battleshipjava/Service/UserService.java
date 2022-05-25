@@ -16,7 +16,7 @@ public class UserService {
 
     public UserService() {
         administrator = new User("cgiraldo93759@umanizales.edu.co", "123456",
-                new TypeUser(1, "Administrador"), null);
+                new TypeUser(1, "Administrador"));
     }
 
     public boolean signInAdministrator(String email, String pwd) {

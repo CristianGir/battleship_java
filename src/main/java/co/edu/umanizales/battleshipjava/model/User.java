@@ -15,13 +15,11 @@ public class User {
     private String password;
     @NotNull
     private TypeUser typeUser;
-    private String token;
 
-    public User (String email, String password, TypeUser typeUser, String token) {
+    public User (String email, String password, TypeUser typeUser) {
         this.email = email;
         this.password = password;
         this.typeUser = typeUser;
-        this.token = token;
     }
 
     public UserDTO userToDTO() {

@@ -41,13 +41,12 @@ public class UserController {
                          @RequestParam("code") int code, @RequestParam("description") String description) {
         if (userService.signInAdministrator(email, password)) {
             String token = getJWTToken(email);
-            User user = new User(email, password, new TypeUser(code, description), token);
             return new ResponseEntity<GenericResponse>(new GenericResponse(200, token, null),
                     HttpStatus.OK);
         }
         else {
-            return new ResponseEntity<GenericResponse>(new GenericResponse(403, "", "403. Acceso denegado."),
-                    HttpStatus.OK);
+            return new ResponseEntity<GenericResponse>(new GenericResponse(403, "", "Acceso denegado."),
+                    HttpStatus.FORBIDDEN);
         }
     }
     private String getJWTToken(String user) {
