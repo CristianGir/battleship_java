@@ -18,14 +18,11 @@ public class UserService {
         administrator = new User("cgiraldo93759@umanizales.edu.co", "123456",
                 new TypeUser(1, "Administrador"));
     }
-
     public boolean signInAdministrator(String email, String pwd) {
         if (administrator.getEmail().equals(email) && administrator.getPassword().equals(pwd)) {
             return true;
         }
-        else {
-            return false;
-        }
+        return false;
     }
 
     public List<UserDTO> listUsers() {

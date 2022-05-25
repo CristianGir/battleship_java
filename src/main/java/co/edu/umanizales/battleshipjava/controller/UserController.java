@@ -37,8 +37,7 @@ public class UserController {
         );
     }
     @PostMapping("login")
-    public ResponseEntity<GenericResponse> login(@RequestParam("email") String email, @RequestParam("password") String password,
-                         @RequestParam("code") int code, @RequestParam("description") String description) {
+    public ResponseEntity<GenericResponse> login(@RequestParam("email") String email, @RequestParam("password") String password) {
         if (userService.signInAdministrator(email, password)) {
             String token = getJWTToken(email);
             return new ResponseEntity<GenericResponse>(new GenericResponse(200, token, null),
