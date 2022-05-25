@@ -19,6 +19,15 @@ public class UserService {
                 new TypeUser(1, "Administrador"), null);
     }
 
+    public boolean signInAdministrator(String email, String pwd) {
+        if (administrator.getEmail().equals(email) && administrator.getPassword().equals(pwd)) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
     public List<UserDTO> listUsers() {
         List<UserDTO> list = new ArrayList<>();
         list.add(administrator.userToDTO());

@@ -21,14 +21,14 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @GetMapping
+    @GetMapping("/users")
     public ResponseEntity<GenericResponse> getUsers() {
         return new ResponseEntity<GenericResponse>(
                 new GenericResponse(200, userService.listUsers(), null),
                 HttpStatus.OK
         );
     }
-    @PostMapping
+    @PostMapping("/createuser")
     public ResponseEntity<GenericResponse> createPlayer(@RequestBody @Valid PlayerDTO player) {
         return new ResponseEntity<GenericResponse>(
                 new GenericResponse(200, userService.createPlayer(player.getPlayer(), player.getNumPlayer()),
@@ -36,14 +36,19 @@ public class UserController {
                 HttpStatus.OK
         );
     }
-    @PostMapping("user")
+    @PostMapping("login")
     public ResponseEntity<GenericResponse> login(@RequestParam("email") String email, @RequestParam("password") String password,
                          @RequestParam("code") int code, @RequestParam("description") String description) {
-        String token = getJWTToken(email);
-        User user = new User(email, password, new TypeUser(code, description), token);
-        return new ResponseEntity<GenericResponse>(new GenericResponse(200, user.userToDTO(), null),
-                HttpStatus.OK
-        );
+        if (userService.signInAdministrator(email, password)) {
+            String token = getJWTToken(email);
+            User user = new User(email, password, new TypeUser(code, description), token);
+            return new ResponseEntity<GenericResponse>(new GenericResponse(200, token, null),
+                    HttpStatus.OK);
+        }
+        else {
+            return new ResponseEntity<GenericResponse>(new GenericResponse(403, "", "403. Acceso denegado."),
+                    HttpStatus.OK);
+        }
     }
     private String getJWTToken(String user) {
         String key = "secretKey";
